@@ -2,6 +2,7 @@
 # John Roy Daradal 
 
 # SolutionA: 890
+# SolutionB: 651
 
 from utils import * 
 
@@ -28,6 +29,15 @@ def day05A():
         maxID = max(maxID, computeID(s))
     print(maxID)
 
+def day05B():
+    full = True 
+    ids = [computeID(s) for s in input05(full)]
+    ids.sort()
+    for i in range(1, len(ids)):
+        if ids[i] - ids[i-1] > 1:
+            print(ids[i]-1)
+            break
+
 numRows, numCols = 128, 8
 def computeID(s: seat) -> int:
     rows, cols = s 
@@ -48,3 +58,4 @@ def findBinary(sides: list[int], limit: int) -> int:
 
 if __name__ == '__main__':
     day05A()
+    day05B()
