@@ -12,3 +12,7 @@ def readLines(path: str, strip: bool = True) -> list[str]:
         lines = [x for x in f.readlines()]
     f.close()
     return lines
+
+def move(pos: coords, delta: coords) -> coords:
+    (y,x), (dy,dx) = pos, delta 
+    return (y+dy, x+dx)
