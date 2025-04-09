@@ -2,6 +2,7 @@
 # John Roy Daradal 
 
 # SolutionA: 997899
+# SolutionB: 131248694
 
 import itertools
 from utils import * 
@@ -12,10 +13,21 @@ def input01(full: bool) -> list[int]:
 def day01A():
     full = True 
     numbers = input01(full)
-    for p in itertools.combinations(numbers, 2):
+    find2020Combo(numbers, 2)
+
+def day01B():
+    full = True 
+    numbers = input01(full)
+    find2020Combo(numbers, 3)
+
+def find2020Combo(numbers: list[int], count: int):
+    for p in itertools.combinations(numbers, count):
         if sum(p) == 2020:
-            print(p[0]*p[1])
+            prod = 1 
+            for x in p: prod *= x
+            print(prod)
             break
     
 if __name__ == '__main__':
     day01A()
+    day01B()
